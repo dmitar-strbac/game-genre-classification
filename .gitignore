@@ -205,3 +205,12 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Data and model outputs
+data/raw/
+data/processed/
+outputs/models/
+outputs/logs/
+*.pt
+*.pth
+*.ckpt
