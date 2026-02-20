@@ -4,6 +4,7 @@ import json
 import time
 from pathlib import Path
 from typing import Tuple
+import csv
 
 import torch
 import torch.nn as nn
@@ -17,6 +18,7 @@ from config import (
     IMG_SIZE,
     LR,
     MODEL_DIR,
+    LOG_DIR,
     NUM_WORKERS,
     RAW_DATA_DIR,
     SEED,
@@ -82,6 +84,13 @@ def main() -> None:
     set_seed(SEED)
 
     MODEL_DIR.mkdir(parents=True, exist_ok=True)
+
+    LOG_DIR.mkdir(parents=True, exist_ok=True)
+    log_file = LOG_DIR / "training_log.csv"
+
+    with open(log_file, "w", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["epoch", "train_loss", "train_acc", "val_loss", "val_acc"])
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Device: {device}")
@@ -168,6 +177,10 @@ def main() -> None:
             f"val loss {val_loss:.4f}, acc {val_acc:.4f} | "
             f"{elapsed:.1f}s"
         )
+
+        with open(log_file, "a", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow([epoch, train_loss, train_acc, val_loss, val_acc])
 
         if val_acc > best_val_acc:
             best_val_acc = val_acc
