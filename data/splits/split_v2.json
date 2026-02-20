@@ -1,0 +1,68 @@
+{
+  "train_games": [
+    "EscapeFromTarkov",
+    "Overwatch",
+    "PUBG_Battlegrounds",
+    "Rainbows",
+    "Valorant",
+    "FreeFire",
+
+    "Dota2",
+    "LeagueOfLegends",
+
+    "FIFA21",
+
+    "WorldOfWarcraft",
+    "GTAV",
+
+    "Minecraft",
+    "Rust"
+  ],
+  "test_games": [
+    "ApexLegends",
+    "CSGO",
+    "Fortnite",
+    "Warzone",
+
+    "ClashRoyale",
+    "RocketLeague",
+    "SeaOfThieves",
+    "DeathByDaylight"
+  ],
+  "val_image_fraction": [0.2],
+  "seed": [42],
+  "genres": [
+    "Shooter",
+    "MOBA",
+    "Sports",
+    "RPG/MMORPG",
+    "Sandbox/Survival"
+  ],
+  "game_to_genre": {
+    "ApexLegends": "Shooter",
+    "CSGO": "Shooter",
+    "EscapeFromTarkov": "Shooter",
+    "Overwatch": "Shooter",
+    "PUBG_Battlegrounds": "Shooter",
+    "Rainbows": "Shooter",
+    "Valorant": "Shooter",
+    "Warzone": "Shooter",
+    "Fortnite": "Shooter",
+    "FreeFire": "Shooter",
+
+    "Dota2": "MOBA",
+    "LeagueOfLegends": "MOBA",
+    "ClashRoyale": "MOBA",
+
+    "FIFA21": "Sports",
+    "RocketLeague": "Sports",
+
+    "WorldOfWarcraft": "RPG/MMORPG",
+    "GTAV": "RPG/MMORPG",
+    "SeaOfThieves": "RPG/MMORPG",
+
+    "Minecraft": "Sandbox/Survival",
+    "Rust": "Sandbox/Survival",
+    "DeathByDaylight": "Sandbox/Survival"
+  }
+}

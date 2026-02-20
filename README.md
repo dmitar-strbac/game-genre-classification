@@ -44,7 +44,7 @@ We use the public Kaggle dataset:
 
 It contains screenshots from 21 games:
 
-ApexLegends, CSGO, ClashRoyale, DeathByDaylight, Dota2, EscapeFromTarkov, FIFA21, Fortnite, FreeFire, GTAV, LeagueOfLegends, Minecraft, Overwatch, PUBG_Battleground, RainbowSix, RocketLeague, Rust, SeaOfThieves, Valorant, Warzone, WorldOfWarcraft
+*ApexLegends, CSGO, ClashRoyale, DeathByDaylight, Dota2, EscapeFromTarkov, FIFA21, Fortnite, FreeFire, GTAV, LeagueOfLegends, Minecraft, Overwatch, PUBG_Battleground, RainbowSix, RocketLeague, Rust, SeaOfThieves, Valorant, Warzone, WorldOfWarcraft*
 
 Each game is mapped into one of the 5 defined genres.
 
@@ -114,8 +114,58 @@ python src/train.py
 
 ---
 
+## 🧪 Evaluation
+```
+python src/evaluate.py
+```
+---
+
+## 🔍 Single Image Prediction
+```
+python src/predict.py --image "path/to/screenshot.png"
+```
+
+---
+
+## 📈 Results
+
+Final model evaluated on unseen games (game-level split, 49,812 test images):
+
+| Metric | Value |
+|------|------|
+| Accuracy | **57%** |
+| Weighted F1-score | **0.54** |
+| Macro F1-score | **0.28** |
+
+### Per-class performance
+
+| Genre | Precision | Recall | F1 |
+|------|------|------|------|
+| Shooter | 0.74 | 0.82 | 0.78 |
+| MOBA | 0.24 | 0.05 | 0.08 |
+| Sports | 0.40 | 0.15 | 0.22 |
+| RPG/MMORPG | 0.20 | 0.46 | 0.28 |
+| Sandbox/Survival | 0.04 | 0.02 | 0.02 |
+
+### Confusion Matrix
+![Confusion Matrix](outputs/figures/confusion_matrix.png)
+
+---
+
+## 💬 Discussion
+
+Although the model achieves near-perfect validation accuracy (>99%), performance drops on unseen games due to the game-level split.
+This indicates the model learns general visual patterns rather than memorizing specific games.
+
+Certain genres (e.g. Shooter) contain strong visual cues such as crosshair and first-person HUD, making them easier to classify.
+Other genres (MOBA, Sandbox/Survival) require semantic understanding beyond a single screenshot, which limits CNN performance.
+
+This demonstrates the inherent difficulty of genre recognition from static images.
+
+---
+
 ## 👤 Author
-Dmitar Štrbac  
+**Dmitar Štrbac**  
 Faculty of Technical Sciences, University of Novi Sad
 
 ---
