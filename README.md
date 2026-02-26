@@ -164,6 +164,14 @@ This demonstrates the inherent difficulty of genre recognition from static image
 
 ---
 
+## 📄 Research Poster
+
+![Poster](docs/poster.png)
+
+Full PDF: [poster.pdf](docs/poster.pdf)
+
+---
+
 ## 👤 Author
 **Dmitar Štrbac**  
 Faculty of Technical Sciences, University of Novi Sad
