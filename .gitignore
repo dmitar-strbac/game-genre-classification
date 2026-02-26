@@ -209,8 +209,10 @@ __marimo__/
 # Data and model outputs
 data/raw/
 data/processed/
-outputs/models/
-outputs/logs/
 *.pt
 *.pth
 *.ckpt
+
+# allow final trained model (for reproducibility)
+!outputs/models/
+!outputs/models/best_resnet50.pt
